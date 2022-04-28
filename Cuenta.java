@@ -1,59 +1,72 @@
 
+public class Cuenta {
 
-public class Cuenta
-  {
-    private int numeroCuen;
-    private float saldo;
+	
+	private float Saldo;
+	private int NCta;
+	private Titular tit;
+	
+	public Cuenta() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * @param saldo
+	 * @param nCta
+	 */
+	
+	
 
-    public Cuenta (){
-      
-    }
-    public Cuenta (int numeroCuen, float saldo){
-      this.numeroCuen = numeroCuen;
-      this.saldo = saldo;
-    }
 
-    public void setNumeroCuen (int numeroCuen){
-      this.numeroCuen = numeroCuen;
-    }
 
-    public void setSaldo (float saldo){
-      this.saldo = saldo;
-    }
+	public float getSaldo() {
+		return Saldo;
+	}
 
-    public int getNumeroCuen(){
-      return numeroCuen;
-    }
+	/**
+	 * @param saldo
+	 * @param nCta
+	 * @param tit
+	 */
+	public Cuenta(float saldo, int nCta,String cedula, String nombre) {
+		super();
+		Saldo = saldo;
+		NCta = nCta;
+		this.tit = new Titular(cedula,nombre);
+	}
 
-    public float getSaldo (){
-      return saldo;
-    }
+	public void setSaldo(float saldo) {
+		
+		Saldo = saldo;
+		
+	}
 
-    public void acreditar (float val){
-      setSaldo(getSaldo()+val);
-    }
-    public void debitar (float val){
-      if(validarSaldo(val)){
-        setSaldo(getSaldo()-val);
-      }
-    }
+	public int getNCta() {
+		return NCta;
+	}
 
-    public boolean validarSaldo (float val){
-      boolean flag = false;
-      if(val > getSaldo()){
-        System.out.println("Su saldo es insuficiente.....");
-      }else{
-        flag = true;
-      }
-      return flag;
-    }
-    
-    
-@Override
-    public String toString() {
-    return "\nCuentaBancaria" +
-    "\nNumero de Cuenta = " + numeroCuen +
-    "\nsaldo = " + saldo;
-    }
-  }
-    
+	public void setNCta(int nCta) {
+		NCta = nCta;
+	}
+	
+	public void acreditar(float monto) {
+		setSaldo(getSaldo()+monto);
+	}
+	
+	public void debitar(float monto) {
+		setSaldo(getSaldo()-monto);
+	}
+
+	public Titular getTit() {
+		return tit;
+	}
+
+	public void setTit(Titular tit) {
+		this.tit = tit;
+	}
+
+	@Override
+	public String toString() {
+		return "Cuenta [Saldo=" + Saldo + ", NCta=" + NCta + ", tit=" + tit + "]";
+	}	
+}
