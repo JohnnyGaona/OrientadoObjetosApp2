@@ -24,7 +24,7 @@ class Main {
       System.out.println("1) Ahorro / 2) Corriente / 3) Mostrar las cuentas / 4) Salir ");
         ans = ing.nextInt(); 
       
-    if (ans != 3){
+    if (ans != 3 && ans != 4){
       System.out.print("Ingrese nombre del titula: ");
         Nombre = ing.next();
       System.out.print("Ingrese cedula del titula: ");
