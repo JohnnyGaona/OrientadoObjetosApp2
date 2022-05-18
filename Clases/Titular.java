@@ -1,6 +1,9 @@
 package Clases;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 
 @XmlRootElement(name="Titular")
 @XmlType(propOrder=("Cedula","Nombre"))
@@ -12,6 +15,10 @@ public class Titular {
 	 * @param cedula
 	 * @param nombre
 	 */
+	public Titular(){
+		
+	}
+	
 	public Titular(String cedula, String nombre) {
 		super();
 		Cedula = cedula;
@@ -24,12 +31,16 @@ public class Titular {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	@XmlElement(name="Cedula")
 	public String getCedula() {
 		return Cedula;
 	}
 	public void setCedula(String cedula) {
 		Cedula = cedula;
 	}
+	
+	@XmlElement(name="Nombre")
 	public String getNombre() {
 		return Nombre;
 	}
