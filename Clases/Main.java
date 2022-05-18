@@ -1,6 +1,8 @@
+package Clases;
 import java.util.Scanner;
+import Interfaces.Operaciones;
+import Interfaces.OperacionesAhorro;
 import java.util.*;
-
 
 class Main {
    
@@ -14,14 +16,17 @@ class Main {
 	String Nombre;
   float Costo;
   Scanner ing = new Scanner (System.in);   
-  
+  Operaciones op1 = new OperacionesAhorro();
+  Cuenta obj; 
     List <Cuenta> cta = new ArrayList<Cuenta>();
-
-    Cuenta obj; 
+  
+    
+    
     do{
-      System.out.println("Bienvenido a la banca movil....");
+      op1.añadir();
+      System.out.println("Bienvenido ");
       System.out.println("Por favor seleccione el tipo de cuenta...");
-      System.out.println("1) Ahorro / 2) Corriente / 3) Mostrar las cuentas / 4) Salir ");
+      System.out.println("1) Ahorro / 2) Corriente / 3) Mostrar las cuentas /4) Mostrar Cuantas de ahorro /5) Mostrar cuentas corrientes / 6) Salir ");
         ans = ing.nextInt(); 
       
     if (ans != 3 && ans != 4){
@@ -31,10 +36,13 @@ class Main {
         Cedula = ing.next();
       System.out.print("Ingrese numero Cta. del titula: ");
         NCta = ing.nextInt();
+      System.out.print("Ingrese saldo del titula: ");
+        Saldo = ing.nextFloat();
     if(ans==1){
       System.out.print("Ingrese interes del titula: ");
         interes = ing.nextFloat();
-      obj = new Ahorros(interes, Saldo, NCta, Cedula, Nombre);              
+      obj = new Ahorros(interes, Saldo, NCta, Cedula, Nombre);
+      obj.calcularPorcentaje();
       cta.add(obj);
               
     }else{
@@ -42,11 +50,11 @@ class Main {
       System.out.print("Ingrese costo del titula: ");
         Costo = ing.nextFloat();
       obj = new Corrientes(Costo, Saldo, NCta, Cedula, Nombre);
+      
+      obj.calcularPorcentaje();
       cta.add(obj);
     }
    }
-
-    
 
       if(ans == 3){
       if (!cta.isEmpty()){
@@ -59,7 +67,7 @@ class Main {
     }while(ans != 4);
 
 
-    
+    // 
     
   }
   

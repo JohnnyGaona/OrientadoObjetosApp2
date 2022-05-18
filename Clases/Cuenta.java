@@ -1,5 +1,5 @@
-
-public class Cuenta {
+package Clases;
+public abstract class Cuenta {
 
 	
 	private float Saldo;
@@ -14,10 +14,8 @@ public class Cuenta {
 	 * @param saldo
 	 * @param nCta
 	 */
-	
-	
 
-
+  public abstract void calcularPorcentaje(); 
 
 	public float getSaldo() {
 		return Saldo;
@@ -67,6 +65,8 @@ public class Cuenta {
 
 	@Override
 	public String toString() {
+    System.out.println("");
 		return "Cuenta [Saldo=" + Saldo + ", NCta=" + NCta + ", tit=" + tit + "]";
+    //System.out.println("");
 	}	
 }

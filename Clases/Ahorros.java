@@ -1,4 +1,4 @@
-
+package Clases;
 public class Ahorros extends Cuenta{
 	
 	private float Interes;
@@ -22,14 +22,18 @@ public class Ahorros extends Cuenta{
 	public float getInteres() {
 		return Interes;
 	}
-
+   public void calcularPorcentaje(){
+    acreditar(getSaldo()*(getInteres()/100));
+    }
 	public void setInteres(float interes) {
 		Interes = interes;
 	}
 
 	@Override
 	public String toString() {
+    System.out.println("");
 		return super.toString()+" Ahorros [Interes=" + Interes + "]";
+    //System.out.println("");
 	}
 	
 }

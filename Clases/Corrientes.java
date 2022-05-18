@@ -1,4 +1,4 @@
-
+package Clases;
 public class Corrientes extends Cuenta{
 	private float Costo;
 
@@ -17,7 +17,9 @@ public class Corrientes extends Cuenta{
 		super(saldo,nCta, cedula, nombre);
 		Costo = costo;
 	}
-
+   public void calcularPorcentaje(){
+    debitar(getSaldo()*(getCosto()/100));
+    }
 	public float getCosto() {
 		return Costo;
 	}
@@ -28,7 +30,9 @@ public class Corrientes extends Cuenta{
 
 	@Override
 	public String toString() {
+    System.out.println("");
 		return super.toString()+" Corriente [Costo=" + Costo + "]";
+    //System.out.println("");
 	}
 	
 	

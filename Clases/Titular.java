@@ -1,3 +1,9 @@
+package Clases;
+
+import javax.xml.bind.annotation.XmlElement;
+
+@XmlRootElement(name="Titular")
+@XmlType(propOrder=("Cedula","Nombre"))
 public class Titular {
 	private String Cedula;
 	private String Nombre;
